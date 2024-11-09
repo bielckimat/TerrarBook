@@ -1,6 +1,7 @@
 import { Component,Input, OnInit} from '@angular/core';
 import { AnimalsService } from '../animals.service';
 import { CommonModule } from '@angular/common'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-animal',
@@ -13,7 +14,11 @@ import { CommonModule } from '@angular/common';
 export class AnimalComponent implements OnInit{
   animals: any[] = []; 
 
-  constructor(private animalsService: AnimalsService) {}
+  constructor(private animalsService: AnimalsService, private router: Router) {}
+
+  navigateToAddAnimal(): void {
+    this.router.navigate(['/add-animal']);
+  }
 
 
   ngOnInit(): void {
@@ -28,4 +33,6 @@ export class AnimalComponent implements OnInit{
       }
     );
   }
+
+  
 }

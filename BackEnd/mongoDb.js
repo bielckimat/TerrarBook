@@ -44,7 +44,7 @@ async function initialMongDb() {
           
      
       
-      await client.close();
+      client.close();
       console.log('Close conect mongoDb!');
     } catch (err) {
       console.error('Conecting mongoDb Error:', err);
@@ -52,7 +52,28 @@ async function initialMongDb() {
 
   }
 
+async function readAllAnimal() {
+  const client = await mc.connect(url,);
+      console.log('Conetion mongoDb!');
+  
+      const db = await client.db(dbName);
+       r = await db.collection(conlectionAniemalName).find({}).toArray();
+      
+       client.close();
+       return r 
+}
 
-
-
-module.exports ={initialMongDb}
+async function addAnimal(body) {
+  const client = await mc.connect(url,);
+      console.log('Conetion mongoDb!');
+  
+      const db = client.db(dbName);
+      let animals = db.collection(conlectionAniemalName)
+      await animals.insertOne(body)
+  client.close();
+}
+module.exports ={
+  initialMongDb,
+  readAllAnimal,
+  addAnimal            
+}

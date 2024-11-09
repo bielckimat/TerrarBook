@@ -1,4 +1,5 @@
 <h1>Animals</h1>
+<button (click)="navigateToAddAnimal()">Dodaj nowe zwierzę</button>
 <ul>
   <li *ngFor="let animal of animals">
     {{ animal.name }} ({{ animal.type }})
