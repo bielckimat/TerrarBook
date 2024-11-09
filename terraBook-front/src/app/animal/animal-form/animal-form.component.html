@@ -1,0 +1,11 @@
+<p>animal-form works!</p>
+<h2>Add Animal</h2>
+<form (ngSubmit)="onSubmit()">
+  <label for="name">Nazwa:</label>
+  <input id="name" [(ngModel)]="animal.name" name="name" required />
+
+  <label for="type">Typ:</label>
+  <input id="type" [(ngModel)]="animal.type" name="type" required />
+
+  <button type="submit">Dodaj zwierzę</button>
+</form>
