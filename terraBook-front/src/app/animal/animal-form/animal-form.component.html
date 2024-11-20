@@ -7,5 +7,15 @@
   <label for="type">Typ:</label>
   <input id="type" [(ngModel)]="animal.type" name="type" required />
 
+  <label for="photo">Zdjęcie:</label>
+  <input
+    id="photo"
+    type="file"
+    (change)="onFileSelected($event)"
+    name="photo"
+    required
+  />
+
+  
   <button type="submit">Dodaj zwierzę</button>
 </form>

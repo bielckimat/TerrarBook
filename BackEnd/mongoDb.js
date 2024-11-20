@@ -66,12 +66,13 @@ async function readAllAnimal() {
 async function addAnimal(body) {
   const client = await mc.connect(url,);
       console.log('Conetion mongoDb!');
-  
       const db = client.db(dbName);
       let animals = db.collection(conlectionAniemalName)
       await animals.insertOne(body)
   client.close();
 }
+
+
 module.exports ={
   initialMongDb,
   readAllAnimal,
