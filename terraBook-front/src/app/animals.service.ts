@@ -18,8 +18,7 @@ export class AnimalsService {
     return this.httpClient.get(this.apiUrl+this.animalsUrl); 
   }
 
-  addAnimal(animal: { name: string; type: string }): Observable<any> {
-    const headers = { 'Content-Type': 'application/json' };
-    return this.httpClient.post<any>(this.apiUrl+this.addAnimalsUrl, animal,{ headers }); 
+  addAnimal(data: FormData): Observable<any> {
+    return this.httpClient.post<any>(this.apiUrl+this.addAnimalsUrl, data); 
   }
 }
